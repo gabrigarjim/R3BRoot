@@ -30,6 +30,7 @@ ${R3BROOT_SOURCE_DIR}/tracking
 ${R3BROOT_SOURCE_DIR}/califa/unpack
 ${R3BROOT_SOURCE_DIR}/califa/ana
 ${R3BROOT_SOURCE_DIR}/califa/pars
+{R3BROOT_SOURCE_DIR}/califa/prep
 ${R3BROOT_SOURCE_DIR}/califa/sim
 ${R3BROOT_SOURCE_DIR}/r3bdata/califaData
 ${R3BROOT_SOURCE_DIR}/r3bdata
@@ -65,6 +66,7 @@ set(SRCS
 ./pars/R3BCalifaTotCalPar.cxx
 ./pars/R3BCalifaContFact.cxx
 ./pars/R3BCalifaCrystalPars4Sim.cxx
+./prep/R3BCalifaGainMatch.cxx
 )
 
 # fill list of header files from list of source files

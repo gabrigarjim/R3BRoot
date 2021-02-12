@@ -40,5 +40,6 @@
 #pragma link C++ class R3BCalifaMappingPar+;
 #pragma link C++ class R3BCalifaCrystalPars4Sim+;
 
+#pragma link C++ class R3BCalifaGainMatch+;
 
 #endif
