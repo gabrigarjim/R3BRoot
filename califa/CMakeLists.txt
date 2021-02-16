@@ -30,7 +30,7 @@ ${R3BROOT_SOURCE_DIR}/tracking
 ${R3BROOT_SOURCE_DIR}/califa/unpack
 ${R3BROOT_SOURCE_DIR}/califa/ana
 ${R3BROOT_SOURCE_DIR}/califa/pars
-{R3BROOT_SOURCE_DIR}/califa/prep
+${R3BROOT_SOURCE_DIR}/califa/prep
 ${R3BROOT_SOURCE_DIR}/califa/sim
 ${R3BROOT_SOURCE_DIR}/r3bdata/califaData
 ${R3BROOT_SOURCE_DIR}/r3bdata

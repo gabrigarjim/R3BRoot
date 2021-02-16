@@ -4,6 +4,7 @@
 #include "FairTask.h"
 #include "R3BCalifaMappingPar.h"
 #include "R3BCalifaMappedData.h"
+#include "R3BCalifaCrystalCalData.h"
 #include "FairRuntimeDb.h"
 #include "FairLogger.h"
 #include "TH1F.h"
@@ -28,29 +29,11 @@ public:
     /* Load mapping pars */
     void SetParContainers();
 
-    void SetVInterval(Int_t v1,Int_t v2);
+    virtual void SearchPeaks();
 
-    void SetDeltaV(Int_t fDV){
-      fDeltaV=fDV;
-    };
+    void CreateHistograms();
 
-    /** Virtual method Init **/
-    virtual InitStatus Init();
-
-    /** Virtual method Exec **/
-    virtual void Exec(Option_t* opt);
-
-    /** Virtual method FinishEvent **/
-    virtual void FinishEvent();
-
-    /** Virtual method FinishTask **/
-    virtual void FinishTask();
-
-    /** Virtual method Reset **/
-    virtual void Reset();
-
-    /** Virtual method ReInit **/
-    virtual InitStatus ReInit();
+    void FillHistograms(std::vector<TString> fileList);
 
     void SetHistoLimits(Int_t l, Int_t r) {
 
@@ -59,27 +42,53 @@ public:
 
     };
 
+    void SetSigma(Float_t sigma) {
+
+        fSigma=sigma;
+    }
+
+    void SetNumPeaks(Int_t peaks) {
+
+        fNumPeaks=peaks;
+    }
+
+
+    void SetThreshold(Float_t threshold) {
+
+        fThreshold=threshold;
+    }
+
+
+    void setOutputFile(TFile *f){
+
+      file=f;
+    }
+
+
 
 
 
  protected:
 
     R3BCalifaMappingPar *fMap_Pars;
-    TClonesArray* fCalifaMappedDataCA; /**< Array with CALIFA Mapped-input data. >*/
 
-    Int_t fV1;
-    Int_t fV2;
-    Int_t fDeltaV;
     Int_t fNumCrystals;
-    Int_t fNFiles;
     Int_t fRightLimit;
     Int_t fLeftLimit;
     TH1F** fh_Map_energy_crystal;
+    TFile *eventFile;
+    TTree* eventTree;
+    TClonesArray* mappedCA;
+    TBranch* mappedBranch;
+    Int_t fNumPeaks;
+    Float_t fSigma;
+    Float_t fThreshold;
+    TFile *file;
 
 
  public:
     // Class definition
-    ClassDef(R3BCalifaGainMatch,1)
+    ClassDef(R3BCalifaGainMatch,2);
 };
 
 #endif
